@@ -1,3 +1,6 @@
+import es from './lang/es-ES.js'
+
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -11,7 +14,9 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: [
+    '@/assets/css/main.css'
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -33,6 +38,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    'nuxt-i18n',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -40,4 +46,23 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  // i18n module configuration ()
+  i18n: {
+    locales: [
+      {
+        code: 'es',
+        iso: 'en-ES',
+        name: 'Español'
+      }
+    ],
+    defaultLocale: 'es',
+    detectBrowserLanguage: false,
+    vueI18n: {
+      fallbackLocale: 'es',
+      messages: {
+        es
+      }
+    }
+  }
 }
