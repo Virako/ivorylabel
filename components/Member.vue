@@ -1,12 +1,8 @@
 <template>
-  <div v-bind:class="{'member':true, 'ligth':(index % 2 != 0)}">
-    <div class="member-desc">
-      <h3>{{ member.name }}</h3>
-      <p>{{ member.desc }}</p>
-    </div>
-    <div class="member-img">
-      <img :src="member.src" alt="desc" />
-    </div>
+  <div class="member">
+    <img class="member-img" :src="member.img" :alt="member.imgDesc" />
+    <h3 class="member-title">{{ member.name }}</h3>
+    <div class="member-desc" v-html="member.desc"></div>
   </div>
 </template>
 
@@ -28,27 +24,22 @@ export default Vue.extend({
 </script>
 
 <style>
-/* Default color is dark */
+.member-img {
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+}
+
 .member {
-  background-color: var(--background-dark);
-  color: var(--color-light);
-  width: 100%;
+  width: 300px;
   min-height: 8em;
   display: flex;
   flex-flow: row wrap;
 }
 
-.ligth {
-  background-color: var(--background-light);
-  color: var(--color-dark);
-}
-
-.member-desc {
-  flex-grow: 2;
-}
-
-.member-img {
-  flex-grow: 1;
+.member-desc, .member-title {
+  text-align: center;
+  margin: auto;
 }
 
 </style>

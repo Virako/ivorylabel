@@ -39,6 +39,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'nuxt-i18n',
+    ['vue-scrollto/nuxt', { offset: -280 }],
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)

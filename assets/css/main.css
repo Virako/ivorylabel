@@ -1,0 +1,39 @@
+:root {
+  --background-primary: #bebebe;
+  --background-menu: #d2c25e;
+  --background-dark: #555555;
+  --background-light: #d2c25e;
+
+  --color-primary: #1e1e1e;
+  --color-secondary: #555555;
+  --color-disabled: #989898;
+  --color-hover: #d2c25e;
+  --color-link: #1e1e1e;
+  --color-light: #555555;
+  --color-dark: #1e1e1e;
+  --color-icon: #d2c25e;
+
+  --font-family: 'Montserrat', sans-serif;
+
+  --height-header: 16em;
+  --height-footer: 8em;
+}
+
+a {
+  font-family: var(--font-family);
+  color: var(--color-link);
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, p, span {
+  font-family: var(--font-family);
+  color: var(--color-primary);
+}
+
+h2, h3 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: var(--color-primary);
+}
+

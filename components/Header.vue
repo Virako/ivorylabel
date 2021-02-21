@@ -1,12 +1,13 @@
 <template>
   <header class="header">
-    <header-bg class="header-bg" />
-    <content class="content">
+    <div class="white-bg" />
+    <div class="header-bg" />
+    <div class="header-text">
       <nuxt-link class="logo" :to="localeRoute('/')">
         <img class="logo-img" src="@/assets/images/logo.svg" alt="logo" />
       </nuxt-link>
       <Menu />
-    </content>
+    </div>
   </header>
 </template>
 
@@ -21,8 +22,15 @@
   justify-content: space-between;
 }
 
+.white-bg {
+  position: absolute;
+  background-color: white;
+  height: var(--height-header);
+  width: 100%;
+}
+
 .header-bg {
-  position: fixed;
+  position: absolute;
   filter: opacity(70%) grayscale(100%);
   background-image: url("~@/assets/images/bg_header.jpg");
   background-position: center;
@@ -32,11 +40,15 @@
   width: 100%;
 }
 
-.content {
-  position: fixed;
+.header-text {
+  position: absolute;
   text-align: center;
   margin: auto;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .logo-img {
