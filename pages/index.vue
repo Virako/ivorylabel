@@ -156,6 +156,13 @@ export default Vue.extend({
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.paragraph {
+  max-width: 80ch;
+  margin: auto;
 }
 
 </style>

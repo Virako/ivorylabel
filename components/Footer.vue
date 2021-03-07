@@ -1,35 +1,27 @@
 <template>
   <footer class="footer">
-    <ul class="menu-list">
-      <li class="menu-item">
-        <a class="rrss" href="#">
-          <font-awesome-layers class="icon fa-3x">
-            <font-awesome-icon :icon="['fab', 'instagram']" />
-          </font-awesome-layers>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="rrss" href="#">
-          <font-awesome-layers class="icon fa-3x">
-            <font-awesome-icon :icon="['fab', 'youtube']" />
-          </font-awesome-layers>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="rrss" href="https://wa.me/685378731">
-          <font-awesome-layers class="icon fa-3x">
-            <font-awesome-icon :icon="['fab', 'whatsapp']" />
-          </font-awesome-layers>
-        </a>
-      </li>
-      <li class="menu-item">
-        <a class="rrss" href="mailto:contacto@ivorylabel.es">
-          <font-awesome-layers class="icon fa-3x">
-            <font-awesome-icon :icon="['fas', 'envelope']" />
-          </font-awesome-layers>
-        </a>
-      </li>
-    </ul>
+    <div class="menu-rrss">
+      <a class="rrss" href="#">
+        <font-awesome-layers class="icon fa-3x">
+          <font-awesome-icon :icon="['fab', 'instagram']" />
+        </font-awesome-layers>
+      </a>
+      <a class="rrss" href="#">
+        <font-awesome-layers class="icon fa-3x">
+          <font-awesome-icon :icon="['fab', 'youtube']" />
+        </font-awesome-layers>
+      </a>
+      <a class="rrss" href="https://wa.me/685378731">
+        <font-awesome-layers class="icon fa-3x">
+          <font-awesome-icon :icon="['fab', 'whatsapp']" />
+        </font-awesome-layers>
+      </a>
+      <a class="rrss" href="mailto:contacto@ivorylabel.es">
+        <font-awesome-layers class="icon fa-3x">
+          <font-awesome-icon :icon="['fas', 'envelope']" />
+        </font-awesome-layers>
+      </a>
+    </div>
   </footer>
 </template>
 
@@ -53,10 +45,17 @@ export default Vue.extend({
   text-align:  center;
   height: var(--height-footer);
   background-color: var(--background-dark);
-  flex-shrink: 0;
+}
+
+.menu-rrss {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .rrss {
-  padding: 2em;
+  width: 80px;
 }
+
 </style>

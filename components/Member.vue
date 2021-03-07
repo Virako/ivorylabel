@@ -26,6 +26,7 @@ export default Vue.extend({
 <style>
 .member-img {
   border-radius: 50%;
+  border: var(--color-primary) 3px solid;
   text-align: center;
   margin: auto;
 }
