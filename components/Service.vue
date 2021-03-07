@@ -36,7 +36,6 @@ export default Vue.extend({
 </script>
 
 <style>
-/* Default color is dark */
 .service {
   width: 300px;
   min-height: 8em;
@@ -44,9 +43,14 @@ export default Vue.extend({
   flex-flow: row wrap;
 }
 
-.service-name, .service-desc {
-  margin: auto;
+.service-desc {
   text-align: center;
+  margin: auto;
+}
+
+.service-name {
+  text-align: center;
+  margin: 16px auto;
 }
 
 .icon {
@@ -54,5 +58,4 @@ export default Vue.extend({
   text-align: center;
   color: var(--color-icon);
 }
-
 </style>

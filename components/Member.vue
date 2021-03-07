@@ -38,9 +38,14 @@ export default Vue.extend({
   flex-flow: row wrap;
 }
 
-.member-desc, .member-title {
+.member-desc {
   text-align: center;
   margin: auto;
+}
+
+.member-title {
+  text-align: center;
+  margin: 16px auto;
 }
 
 </style>
