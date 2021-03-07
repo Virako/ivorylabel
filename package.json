@@ -32,7 +32,7 @@
     "@nuxtjs/pwa": "^3.0.2",
     "core-js": "^3.6.5",
     "ngrok": "^3.4.0",
-    "nuxt": "^2.14.6",
+    "nuxt": "^2.15.2",
     "nuxt-i18n": "^6.15.4",
     "nuxt-property-decorator": "^2.8.8",
     "vue-scrollto": "^2.20.0"
