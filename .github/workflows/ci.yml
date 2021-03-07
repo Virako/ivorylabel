@@ -17,6 +17,10 @@ jobs:
         os: [ubuntu-latest]
         node: [14]
 
+    defaults:
+      run:
+        working-directory: ./web
+
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@master
@@ -28,7 +32,6 @@ jobs:
 
       - name: Get yarn cache directory path 🛠
         id: yarn-cache-dir-path
-        working-directory: ./web
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache node_modules 📦
@@ -41,13 +44,10 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install dependencies 👨🏻‍💻
-        working-directory: ./web
         run: yarn
 
       - name: Run linter 👀
-        working-directory: ./web
         run: yarn lint
 
       - name: Run tests 🧪
-        working-directory: ./web
         run: yarn test
