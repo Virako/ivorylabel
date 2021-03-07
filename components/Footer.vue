@@ -35,14 +35,13 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 library.add(fab, faEnvelope)
-
-export default Vue.extend({
-})
+export default Vue.extend({})
 </script>
 
 <style>
 .footer {
-  text-align:  center;
+  margin-top: 8em;
+  text-align: center;
   height: var(--height-footer);
   background-color: var(--background-dark);
 }
@@ -57,5 +56,4 @@ export default Vue.extend({
 .rrss {
   width: 80px;
 }
-
 </style>

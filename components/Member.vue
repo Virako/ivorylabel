@@ -11,15 +11,15 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    'member': {
-        type: Object,
-        default: () => {}
+    member: {
+      type: Object,
+      default: () => {},
     },
-    'index': {
-        type: Number,
-        default: 0
-    }
-  }
+    index: {
+      type: Number,
+      default: 0,
+    },
+  },
 })
 </script>
 
@@ -47,5 +47,4 @@ export default Vue.extend({
   text-align: center;
   margin: 16px auto;
 }
-
 </style>
