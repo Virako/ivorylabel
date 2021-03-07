@@ -1,20 +1,17 @@
 :root {
   --background-primary: #bebebe;
   --background-menu: #d2c25e;
-  --background-dark: #555555;
+  --background-dark: #555;
   --background-light: #d2c25e;
-
   --color-primary: #1e1e1e;
-  --color-secondary: #555555;
+  --color-secondary: #555;
   --color-disabled: #989898;
   --color-hover: #d2c25e;
   --color-link: #1e1e1e;
-  --color-light: #555555;
+  --color-light: #555;
   --color-dark: #1e1e1e;
   --color-icon: #d2c25e;
-
   --font-family: 'Montserrat', sans-serif;
-
   --height-header: 16em;
   --height-footer: 8em;
 }
@@ -36,4 +33,3 @@ h2, h3 {
   margin-bottom: 0.5em;
   color: var(--color-primary);
 }
-

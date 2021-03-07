@@ -3,27 +3,27 @@
     <nav role="off-canvas" class="nav-menu">
       <ul class="menu-list">
         <li class="menu-item">
-          <a class="link active" href="#" v-scroll-to="'#members'">
+          <a class="link active" v-scroll-to="'#members'" href="#">
             {{ $t('pages.about.title') }}
           </a>
         </li>
         <li class="menu-item">
-          <a class="link" href="#" v-scroll-to="'#services'">
+          <a class="link" v-scroll-to="'#services'" href="#">
             {{ $t('pages.services.title') }}
           </a>
         </li>
         <li class="menu-item">
-          <a class="link" href="#" v-scroll-to="'#recording'">
+          <a class="link" v-scroll-to="'#recording'" href="#">
             {{ $t('pages.recording.title') }}
           </a>
         </li>
         <li class="menu-item">
-          <a class="link" href="#" v-scroll-to="'#projects'">
+          <a class="link" v-scroll-to="'#projects'" href="#">
             {{ $t('pages.projects.title') }}
           </a>
         </li>
         <li class="menu-item">
-          <a class="link" href="#" v-scroll-to="'#contact'">
+          <a class="link" v-scroll-to="'#contact'" href="#">
             {{ $t('pages.contact.title') }}
           </a>
         </li>
@@ -34,14 +34,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
-var VueScrollTo = require('vue-scrollto')
+const VueScrollTo = require('vue-scrollto')
 
 export default Vue.extend({})
 Vue.use(VueScrollTo)
 </script>
 
 <style>
-
 .menu {
   margin-right: 1em;
 }
@@ -51,7 +50,7 @@ Vue.use(VueScrollTo)
 }
 
 .menu-item {
-  margin: .5em;
+  margin: 0.5em;
   display: inline-flex;
   text-align: center;
 }
@@ -90,6 +89,5 @@ Vue.use(VueScrollTo)
     margin: 0;
     display: table;
   }
-
 }
 </style>

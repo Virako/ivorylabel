@@ -32,7 +32,7 @@
           <h2 class="title">Ivory Project</h2>
           <div class="projects">
             <span v-for="(project, index) in projects" :key="index">
-              <Project :index="index" />
+              <Project v-bind="project" :index="index" />
             </span>
           </div>
         </section>

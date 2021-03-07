@@ -32,7 +32,7 @@
 .header-bg {
   position: absolute;
   filter: opacity(70%) grayscale(100%);
-  background-image: url("~@/assets/images/bg_header.jpg");
+  background-image: url('~@/assets/images/bg_header.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,4 +56,3 @@
   width: 300px;
 }
 </style>
-
