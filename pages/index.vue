@@ -4,13 +4,12 @@
 
     <div class="container">
       <div class="content">
-
         <section id="members">
           <h2 class="title">¿Quiénes somos?</h2>
           <div class="paragraph" v-html="about"></div>
           <div class="members">
-            <span v-for="(member, index) in members" v-bind:key="index">
-              <Member v-bind:member="member" v-bind:index="index" />
+            <span v-for="(member, index) in members" :key="index">
+              <Member :member="member" :index="index" />
             </span>
           </div>
         </section>
@@ -18,8 +17,8 @@
         <section id="services">
           <h2 class="title">Servicios</h2>
           <div class="services">
-            <span v-for="(service, index) in services" v-bind:key="index">
-              <Service v-bind:service="service" v-bind:index="index" />
+            <span v-for="(service, index) in services" :key="index">
+              <Service :service="service" :index="index" />
             </span>
           </div>
         </section>
@@ -31,16 +30,9 @@
 
         <section id="projects">
           <h2 class="title">Ivory Project</h2>
-          <h3 class="title">Ivory Live</h3>
-          <div class="services">
-            <span v-for="(service, index) in services" v-bind:key="index">
-              <Service v-bind:service="service" v-bind:index="index" />
-            </span>
-          </div>
-          <h3 class="title">Ivory Session</h3>
-          <div class="services">
-            <span v-for="(service, index) in services" v-bind:key="index">
-              <Service v-bind:service="service" v-bind:index="index" />
+          <div class="projects">
+            <span v-for="(project, index) in projects" :key="index">
+              <Project :index="index" />
             </span>
           </div>
         </section>
@@ -49,7 +41,6 @@
           <h2 class="title">Contacto</h2>
           <div class="paragraph" v-html="about"></div>
         </section>
-
       </div>
       <Footer />
     </div>
@@ -63,8 +54,7 @@ import content from '@/static/data.json'
 export default Vue.extend({
   data() {
     return content
-
-  }
+  },
 })
 </script>
 
@@ -84,7 +74,8 @@ export default Vue.extend({
   text-align: center;
 }
 
-.services, .members {
+.services,
+.members {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -104,5 +95,4 @@ export default Vue.extend({
     margin: auto 8px;
   }
 }
-
 </style>
