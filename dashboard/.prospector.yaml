@@ -1,0 +1,15 @@
+strictness: high
+test-warnings: true
+doc-warnings: false
+
+ignore-paths:
+  - migrations
+  - manage.py
+  - test_settings.py
+
+pep8:
+  options:
+    max-line-length: 100
+
+mccabe:
+  run: true
