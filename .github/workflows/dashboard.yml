@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
       - name: Analysing the code with prospector
         run: |
-          prospector
+          make lint
   mypy:
     runs-on: ubuntu-latest
 
@@ -42,7 +42,7 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
       - name: Running static types with mypy
         run: |
-          mypy famapy
+          make mypy
   pytest:
     runs-on: ubuntu-latest
 
@@ -62,4 +62,4 @@ jobs:
           pip install -r requirements.txt -r requirements-dev.txt
       - name: Running test
         run: |
-          python -m pytest
+          make test
