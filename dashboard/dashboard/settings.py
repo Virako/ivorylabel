@@ -14,6 +14,14 @@ from pathlib import Path
 from os import environ as env
 
 
+def env_list(env_name, default=list):
+    """
+    Get environment var and convert in python list. Example .env: APPS=x1,y2,z3
+    """
+    list_vars = env.get(env_name, None)
+    return list_vars.split(',') if list_vars else default
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +35,7 @@ SECRET_KEY = env.get('SECRET_KEY', 'example')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS: list[str] = []
+ALLOWED_HOSTS: list[str] = env_list('ALLOWED_HOSTS', [])
 
 
 # Application definition

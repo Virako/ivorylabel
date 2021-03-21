@@ -1,4 +1,5 @@
-from os import path
+import json
+import os
 from typing import Any
 
 import ckeditor_uploader.fields
@@ -26,6 +27,11 @@ class Content(models.Model):
             'projects': [project.json for project in self.projects.all()]
         }
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        with open(os.path.join(settings.STATIC_ROOT, 'data.json'), 'w') as fn:
+            json.dump(self.json, fn)
+
 
 class Member(models.Model):
     content = models.ForeignKey(
@@ -47,7 +53,7 @@ class Member(models.Model):
         return {
             'name': self.name,
             'desc': self.desc,
-            'img': path.join(settings.MEDIA_URL, self.img.url) if self.img else ''
+            'img': os.path.join(settings.MEDIA_URL, self.img.url) if self.img else ''
         }
 
 
@@ -60,6 +66,8 @@ class Service(models.Model):
     )
     name = models.CharField('Nombre', max_length=255, unique=True, default='')
     desc = ckeditor_uploader.fields.RichTextUploadingField('Descripción')
+    fa_icon = models.CharField('Icono FA', max_length=64, default='')
+    fa_rotate = models.IntegerField('Rotar icono FA', default=0)
     icon = models.ImageField('Icono', upload_to='icons/', blank=True, null=True)
 
     class Meta:
@@ -71,7 +79,9 @@ class Service(models.Model):
         return {
             'name': self.name,
             'desc': self.desc,
-            'icon': path.join(settings.MEDIA_URL, self.icon.url) if self.icon else ''
+            'icon': self.fa_icon,
+            'iconRotate': self.fa_icon,
+            'iconImg': os.path.join(settings.MEDIA_URL, self.icon.url) if self.icon else ''
         }
 
 
@@ -92,6 +102,6 @@ class Project(models.Model):
     @property
     def json(self) -> dict[str, Any]:
         return {
-            'name': self.name,
+            'title': self.name,
             'slides': [url.strip() for url in self.slides.split('\n') if url]
         }

@@ -29,6 +29,8 @@ export default Vue.extend({
   border: var(--color-primary) 3px solid;
   text-align: center;
   margin: auto;
+  width: 200px;
+  height: 200px;
 }
 
 .member {

@@ -6,9 +6,9 @@
       <div class="content">
         <section id="members">
           <h2 class="title">¿Quiénes somos?</h2>
-          <div class="paragraph" v-html="about"></div>
+          <div class="paragraph" v-html="data.about"></div>
           <div class="members">
-            <span v-for="(member, index) in members" :key="index">
+            <span v-for="(member, index) in data.members" :key="index">
               <Member :member="member" :index="index" />
             </span>
           </div>
@@ -17,7 +17,7 @@
         <section id="services">
           <h2 class="title">Servicios</h2>
           <div class="services">
-            <span v-for="(service, index) in services" :key="index">
+            <span v-for="(service, index) in data.services" :key="index">
               <Service :service="service" :index="index" />
             </span>
           </div>
@@ -25,13 +25,13 @@
 
         <section id="recording">
           <h2 class="title">Estudio Online</h2>
-          <div class="paragraph" v-html="recording"></div>
+          <div class="paragraph" v-html="data.recording"></div>
         </section>
 
         <section id="projects">
           <h2 class="title">Ivory Project</h2>
           <div class="projects">
-            <span v-for="(project, index) in projects" :key="index">
+            <span v-for="(project, index) in data.projects" :key="index">
               <Project v-bind="project" :index="index" />
             </span>
           </div>
@@ -39,7 +39,7 @@
 
         <section id="contact">
           <h2 class="title">Contacto</h2>
-          <div class="paragraph" v-html="about"></div>
+          <div class="paragraph" v-html="data.contact"></div>
         </section>
       </div>
       <Footer />
@@ -51,9 +51,22 @@
 import Vue from 'vue'
 import content from '@/static/data.json'
 
+const DOMAIN = process.env.BASE_URL || 'http://172.23.0.4'
+
 export default Vue.extend({
   data() {
-    return content
+    return {
+      "data": content
+    }
+  },
+  async fetch() {
+    this.data = await fetch(
+       DOMAIN + '/st/static/data.json'
+    ).then(
+      res => res.json()
+    ).catch(
+      err => {}
+    )
   },
 })
 </script>

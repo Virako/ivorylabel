@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+
+  proxy:
+    container_name: il-proxy
+    image: il-proxy:${TAG}
+    build:
+      context: proxy
+      args:
+        DOMAIN: ${DOMAIN}
+    env_file: .env
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - dashboard
+      - web
+    volumes:
+      - st:/app/il
+
+  web:
+    container_name: il-web
+    image: il-web:${TAG}
+    env_file: .env
+    build:
+      context: web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+
+  dashboard:
+    container_name: il-dashboard
+    image: il-dashboard:${TAG}
+    env_file: .env
+    build:
+      context: dashboard
+    restart: unless-stopped
+    command: /usr/local/bin/entrypoint dashboard-local
+    volumes:
+      #- ./dashboard/:/app/
+      - st:/app/st
+
+volumes:
+  st:
+    name: il-static
+
+networks:
+  default:
+    external:
+      name: traefik_il

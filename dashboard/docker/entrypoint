@@ -1,0 +1,23 @@
+#!/bin/ash
+
+function deploy_dashboard {
+  cd /app
+  python manage.py collectstatic --noinput
+  gunicorn -b 0.0.0.0:8000 --access-logfile - --worker-tmp-dir /dev/shm --error-logfile - --timeout 30 -w 3 dashboard.wsgi
+}
+
+function deploy_dashboard_reload {
+  cd /app
+  python manage.py collectstatic --noinput
+  gunicorn --reload -b 0.0.0.0:8000 --access-logfile - --worker-tmp-dir /dev/shm --error-logfile - --timeout 30 -w 3 dashboard.wsgi
+}
+
+
+SERVICE=${1}
+test -z ${SERVICE} && { echo "SERVICE parameter is empty"; exit 1; }
+
+[ ${SERVICE} == dashboard ] && deploy_dashboard
+
+[ ${SERVICE} == dashboard-local ] && deploy_dashboard_reload
+
+[ ${SERVICE} != dashboard ] && [ ${SERVICE} != dashboard-local ] && exec "$@"
