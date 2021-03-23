@@ -1,6 +1,11 @@
 import es from './lang/es-ES.js'
 
 export default {
+  ssr: false,
+  target: 'static',
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://www.il.local'
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'web',

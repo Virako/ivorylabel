@@ -2,31 +2,26 @@ version: '3.7'
 
 services:
 
-  proxy:
-    container_name: il-proxy
-    image: il-proxy:${TAG}
-    build:
-      context: proxy
-      args:
-        DOMAIN: ${DOMAIN}
-    env_file: .env
-    restart: unless-stopped
-    expose:
-      - "80"
-    depends_on:
-      - dashboard
-      - web
-    volumes:
-      - st:/app/il
-
   web:
     container_name: il-web
     image: il-web:${TAG}
     env_file: .env
     build:
       context: web
-      dockerfile: Dockerfile
+      args:
+        DOMAIN: ${DOMAIN}
     restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - "80"
+      - "443"
+    depends_on:
+      - dashboard
+    volumes:
+      - st:/app/il
+      - /etc/letsencrypt:/etc/letsencrypt
 
   dashboard:
     container_name: il-dashboard
@@ -37,12 +32,14 @@ services:
     restart: unless-stopped
     command: /usr/local/bin/entrypoint dashboard-local
     volumes:
-      #- ./dashboard/:/app/
       - st:/app/st
+      - db:/app/db
 
 volumes:
   st:
     name: il-static
+  db:
+    name: il-db
 
 networks:
   default:

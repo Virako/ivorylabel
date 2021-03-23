@@ -1,4 +1,4 @@
-FROM node:15-alpine as build-stage
+FROM node:15-alpine as build
 
 WORKDIR /app
 
@@ -6,10 +6,18 @@ COPY package.json ./
 RUN yarn install
 
 COPY . .
-RUN yarn build
+RUN yarn generate
 
-ENV NUXT_HOST=0.0.0.0
-# set app port
-ENV NUXT_PORT=3000
 
-CMD ["yarn", "start"]
+FROM nginx:1.19.6-alpine
+COPY --from=build /app/dist /app/web
+
+ARG DOMAIN
+
+COPY docker/conf.d/*.conf /etc/nginx/conf.d/
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+
+RUN sed -i "s/_DOMAIN_/${DOMAIN}/g" /etc/nginx/conf.d/*.conf
+
+RUN rm /etc/nginx/conf.d/default.conf
+CMD ["nginx", "-g", "daemon off;"]

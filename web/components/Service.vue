@@ -43,7 +43,7 @@ export default Vue.extend({
 
 <style>
 .service {
-  width: 300px;
+  width: 268px;
   min-height: 8em;
   display: flex;
   flex-flow: row wrap;

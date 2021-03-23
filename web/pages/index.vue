@@ -51,22 +51,20 @@
 import Vue from 'vue'
 import content from '@/static/data.json'
 
-const DOMAIN = process.env.BASE_URL || 'http://172.23.0.4'
 
 export default Vue.extend({
   data() {
     return {
-      "data": content
+      data: content
     }
   },
-  async fetch() {
-    this.data = await fetch(
-       DOMAIN + '/st/static/data.json'
-    ).then(
-      res => res.json()
-    ).catch(
-      err => {}
-    )
+  async asyncData(context) {
+    try {
+      const data = await context.app.$axios.$get('https://ivorylabel.es/st/static/data.json')
+      return { data }
+    } catch (e) {
+      context.error(e)
+    }
   },
 })
 </script>

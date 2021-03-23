@@ -28,7 +28,7 @@ export default Vue.extend({
   border-radius: 50%;
   border: var(--color-primary) 3px solid;
   text-align: center;
-  margin: auto;
+  margin: auto 50px;
   width: 200px;
   height: 200px;
 }

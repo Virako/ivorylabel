@@ -21,6 +21,15 @@ def env_list(env_name, default=list):
     list_vars = env.get(env_name, None)
     return list_vars.split(',') if list_vars else default
 
+def env_get_admins():
+    """ Example: Foo:foo@test.com,Bar:bar@test.com """
+    res = list()
+    list_vars = env.get('ADMINS', '')
+    admins = list_vars.split(',') if list_vars else list()
+    for adm in admins:
+        res.append(tuple(adm.split(':')))
+    return tuple(res)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +46,8 @@ DEBUG = env.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS: list[str] = env_list('ALLOWED_HOSTS', [])
 
+ADMINS = env_get_admins()
+MANAGERS = ADMINS
 
 # Application definition
 
@@ -90,7 +101,7 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db/db.sqlite3',
     }
 }
 
@@ -135,6 +146,17 @@ STATIC_URL = env.get('STATIC_URL', '/static2/static/')
 STATIC_ROOT = env.get('STATIC_ROOT', None)
 MEDIA_URL = env.get('MEDIA_URL', '/static2/media/')
 MEDIA_ROOT = env.get('MEDIA_ROOT', None)
+
+
+# Emails
+SERVER_EMAIL = 'il@localhost'
+DEFAULT_FROM_EMAIL = SERVER_EMAIL
+EMAIL_HOST = env.get('EMAIL_HOST', 'email-smtp.eu-west-1.amazonaws.com')
+EMAIL_PORT = int(env.get('EMAIL_PORT', 587))
+EMAIL_HOST_USER = env.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = env.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = env.get('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
 
 # ckeditor
 CKEDITOR_UPLOAD_PATH = 'uploads/'
