@@ -31,11 +31,6 @@ export default Vue.extend({
   align-items: center;
   justify-content: space-between;
   padding: 8px 32px;
-
-  @media screen and (max-width: 1200px) {
-    padding: 8px 8px;
-  }
-
 }
 
 .scroll {
@@ -44,13 +39,19 @@ export default Vue.extend({
   box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
 }
 
-/*
-.header :overflow {
-  background-color: white;
-}
-*/
-
 .logo-img {
-  width: 300px;
+  width: 220px;
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    padding: 8px 8px;
+    background-color: white;
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+  }
+
+  .scroll {
+    transition: none;
+  }
 }
 </style>
