@@ -1,58 +1,56 @@
 <template>
-  <header class="header">
-    <div class="white-bg" />
-    <div class="header-bg" />
-    <div class="header-text">
-      <nuxt-link class="logo" :to="localeRoute('/')">
-        <img class="logo-img" src="@/assets/images/logo.svg" alt="logo" />
-      </nuxt-link>
-      <Menu />
-    </div>
+  <header :class="{ header: true, scroll: scrollY}">
+    <nuxt-link class="logo" :to="localeRoute('/')">
+      <img class="logo-img" src="@/assets/images/logo.svg" alt="logo" />
+    </nuxt-link>
+    <Menu />
   </header>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+
+
+export default Vue.extend({
+  props: {
+    scrollY: {
+      type: Boolean,
+      default: false,
+    },
+  },
+})
+</script>
+
 <style>
 .header {
-  position: sticky;
+  position: fixed;
   z-index: 2;
+  width: 100%;
   top: 0;
   display: flex;
   align-items: center;
-  height: var(--height-header);
   justify-content: space-between;
+  padding: 8px 32px;
+
+  @media screen and (max-width: 1200px) {
+    padding: 8px 8px;
+  }
+
 }
 
-.white-bg {
-  position: absolute;
+.scroll {
+  transition: background-color 0.5s ease;
   background-color: white;
-  height: var(--height-header);
-  width: 100%;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
 }
 
-.header-bg {
-  position: absolute;
-  filter: opacity(70%) grayscale(100%);
-  background-image: url('~@/assets/images/bg_header.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: var(--height-header);
-  width: 100%;
+/*
+.header :overflow {
+  background-color: white;
 }
-
-.header-text {
-  position: absolute;
-  text-align: center;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+*/
 
 .logo-img {
-  filter: contrast(100%);
   width: 300px;
 }
 </style>

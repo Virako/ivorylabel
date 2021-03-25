@@ -1,12 +1,19 @@
 <template>
   <div>
-    <Header />
+    <Header :scrollY="scrollY" />
 
     <div class="container">
       <div class="content">
+        <section id="home">
+          <div class="home-img"></div>
+          <div class="home-title">
+            <h2>Ivory Label</h2>
+            <span v-html="data.about"></span>
+          </div>
+        </section>
+
         <section id="members">
           <h2 class="title">¿Quiénes somos?</h2>
-          <div class="paragraph" v-html="data.about"></div>
           <div class="members">
             <span v-for="(member, index) in data.members" :key="index">
               <Member :member="member" :index="index" />
@@ -36,13 +43,9 @@
             </span>
           </div>
         </section>
-
-        <section id="contact">
-          <h2 class="title">Contacto</h2>
-          <div class="paragraph" v-html="data.contact"></div>
-        </section>
       </div>
-      <Footer />
+
+      <Footer :text="data.contact" />
     </div>
   </div>
 </template>
@@ -55,7 +58,28 @@ import content from '@/static/data.json'
 export default Vue.extend({
   data() {
     return {
-      data: content
+      data: content,
+      scrollY: false
+    }
+  },
+  methods: {
+    handleScroll() {
+      if (window.scrollY > 0) {
+        this.scrollY = true
+      } else {
+        this.scrollY = false
+      }
+      console.log(this.scrollY, window.scrollY)
+    }
+  },
+  created() {
+    if (process.client) {
+      window.addEventListener('scroll', this.handleScroll)
+    }
+  },
+  destroyed() {
+    if (process.client) {
+      window.removeEventListener('scroll', this.handleScroll)
     }
   },
   async asyncData(context) {
@@ -73,6 +97,25 @@ export default Vue.extend({
 .container {
   display: flex;
   flex-direction: column;
+}
+
+.home-img {
+  width: 100%;
+  background-image: url('~@/assets/images/bg_header.jpg');
+  filter: opacity(70%) grayscale(100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+}
+
+.home-title {
+  position: absolute;
+  height: 60vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .content {

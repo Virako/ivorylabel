@@ -80,7 +80,7 @@ class Service(models.Model):
             'name': self.name,
             'desc': self.desc,
             'icon': self.fa_icon,
-            'iconRotate': self.fa_icon,
+            'iconRotate': self.fa_rotate,
             'iconImg': os.path.join(settings.MEDIA_URL, self.icon.url) if self.icon else ''
         }
 

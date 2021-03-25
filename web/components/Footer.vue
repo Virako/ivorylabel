@@ -22,6 +22,7 @@
         </font-awesome-layers>
       </a>
     </div>
+    <span class="footer-text" v-html="text"></span>
   </footer>
 </template>
 
@@ -35,7 +36,14 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 library.add(fab, faEnvelope)
-export default Vue.extend({})
+export default Vue.extend({
+  props: {
+    text: {
+      type: String,
+      default: ""
+    },
+  },
+})
 </script>
 
 <style>
@@ -44,10 +52,12 @@ export default Vue.extend({})
   text-align: center;
   height: var(--height-footer);
   background-color: var(--background-dark);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .menu-rrss {
-  margin-top: 2em;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -55,5 +65,13 @@ export default Vue.extend({})
 
 .rrss {
   width: 80px;
+}
+
+.footer-text {
+  color: white;
+}
+
+.footer-text > p {
+  color: white;
 }
 </style>
