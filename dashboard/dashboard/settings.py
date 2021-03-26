@@ -162,3 +162,9 @@ EMAIL_BACKEND = env.get('EMAIL_BACKEND', 'django.core.mail.backends.console.Emai
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_RESTRICT_BY_DATE = True
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 120,
+        'width': 480,
+    },
+}

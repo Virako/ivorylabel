@@ -10,6 +10,7 @@ from django.db import models
 class Content(models.Model):
     about = ckeditor_uploader.fields.RichTextUploadingField('¿Quiénes somos?')
     recording = ckeditor_uploader.fields.RichTextUploadingField('Estudio Online')
+    project = ckeditor_uploader.fields.RichTextUploadingField('Ivory Live', default='')
     contact = ckeditor_uploader.fields.RichTextUploadingField('Contacto')
 
     class Meta:
@@ -21,6 +22,7 @@ class Content(models.Model):
         return {
             'about': self.about,
             'recording': self.recording,
+            'project': self.project,
             'contact': self.contact,
             'members': [member.json for member in self.members.all()],
             'services': [service.json for service in self.services.all()],
