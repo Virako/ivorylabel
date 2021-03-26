@@ -63,6 +63,7 @@
             "desc": "usté muy cargadoo te va a hasé pupitaa te va a hasé pupitaa la caidita. Benemeritaar pecador pupita por la gloria de mi madre fistro. Hasta luego Lucas caballo blanco caballo"
         }
     ],
+    "project": "<p>una pequeña descripción de prueba</p>",
     "projects": [
         {
             "title": "Ivory Live",
@@ -78,13 +79,7 @@
             "title": "Ivory Session",
             "slides": [
                 "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8",
-                "https://www.youtube.com/embed/EngW7tLk6R8?ecver=2"
+                "https://www.youtube.com/embed/EngW7tLk6R8"
             ]
         }
     ]

@@ -31,6 +31,8 @@ export default Vue.extend({
   margin: auto 50px;
   width: 200px;
   height: 200px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .member {

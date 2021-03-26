@@ -151,7 +151,7 @@ Vue.use(VueScrollTo)
   #menu {
     position: absolute;
     width: 220px;
-    margin: 40px 0 0 -170px;
+    margin: 40px 0 0 -160px;
     padding: 0;
     background: white;
     list-style-type: none;

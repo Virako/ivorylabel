@@ -36,7 +36,8 @@
         </section>
 
         <section id="projects">
-          <h2 class="title">Ivory Project</h2>
+          <h2 class="title">Ivory Live</h2>
+          <div class="paragraph" v-html="data.project"></div>
           <div class="projects">
             <span v-for="(project, index) in data.projects" :key="index">
               <Project v-bind="project" :index="index" />
@@ -69,7 +70,6 @@ export default Vue.extend({
       } else {
         this.scrollY = false
       }
-      console.log(this.scrollY, window.scrollY)
     }
   },
   created() {

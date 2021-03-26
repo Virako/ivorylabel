@@ -1,20 +1,22 @@
 <template>
   <div class="project">
     <h3 class="title">{{ title }}</h3>
-    <div class="carousel">
-      <iframe
-        v-for="(slide, index) in slides"
-        class="slide"
-        :key="index"
-        :src="slide"
-        width="300"
-        heigth="168"
-        loading="lazy"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      >
-      </iframe>
+    <div class="carousel-parent">
+      <div class="carousel">
+        <iframe
+          v-for="(slide, index) in slides"
+          class="slide"
+          :key="index"
+          :src="slide"
+          width="300"
+          height="168"
+          loading="lazy"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
     </div>
   </div>
 </template>
@@ -41,9 +43,13 @@ export default Vue.extend({
 </script>
 
 <style>
+.carousel-parent {
+  display: flex;
+  justify-content: center;
+}
+
 .carousel {
   max-width: 1200px;
-  width: 100%;
   margin: auto;
   height: 188px;
   display: flex;
@@ -55,9 +61,6 @@ export default Vue.extend({
 }
 
 .slide {
-  width: 300px;
   padding: 0 10px;
-  flex-shrink: 0;
-  height: 168px;
 }
 </style>

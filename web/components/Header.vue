@@ -30,7 +30,7 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 32px;
+  padding: 16px 32px;
 }
 
 .scroll {
@@ -40,12 +40,12 @@ export default Vue.extend({
 }
 
 .logo-img {
-  width: 220px;
+  width: 180px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 60em) {
   .header {
-    padding: 8px 8px;
+    padding: 16px 16px;
     background-color: white;
     box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
   }

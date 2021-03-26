@@ -22,7 +22,7 @@
         </font-awesome-layers>
       </a>
     </div>
-    <span class="footer-text" v-html="text"></span>
+    <div class="paragraph footer-text" v-html="text"></div>
   </footer>
 </template>
 
@@ -61,6 +61,7 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   align-content: center;
+  padding: 16px;
 }
 
 .rrss {
