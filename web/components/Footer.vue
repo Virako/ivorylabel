@@ -1,16 +1,16 @@
 <template>
   <footer class="footer">
     <div class="menu-rrss">
-      <a class="rrss" href="#">
+      <a class="rrss" href="https://www.instagram.com/ivorylabel00/">
         <font-awesome-layers class="icon fa-3x">
           <font-awesome-icon :icon="['fab', 'instagram']" />
         </font-awesome-layers>
       </a>
-      <a class="rrss" href="#">
+      <!--a class="rrss" href="#">
         <font-awesome-layers class="icon fa-3x">
           <font-awesome-icon :icon="['fab', 'youtube']" />
         </font-awesome-layers>
-      </a>
+      </a-->
       <a class="rrss" href="https://wa.me/685378731">
         <font-awesome-layers class="icon fa-3x">
           <font-awesome-icon :icon="['fab', 'whatsapp']" />
