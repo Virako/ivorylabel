@@ -11,7 +11,7 @@
           <font-awesome-icon :icon="['fab', 'youtube']" />
         </font-awesome-layers>
       </a-->
-      <a class="rrss" href="https://wa.me/685378731">
+      <a class="rrss" href="https://wa.me/+34685378731">
         <font-awesome-layers class="icon fa-3x">
           <font-awesome-icon :icon="['fab', 'whatsapp']" />
         </font-awesome-layers>
